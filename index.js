@@ -49,7 +49,7 @@ Use the copy function below to do the following:
 */
 
 function copy(arrStr){
-    return arrStr;
+    return [...arrStr];
 }    
 
 
@@ -205,8 +205,7 @@ function getAverageWordLength(arrStr){
     let itemNum = 0;
     let wordCount = 0;
     let avgNum=0;
-    for(let i=0; i < arrStr.length ; i++)
-     {
+    for(let i=0; i < arrStr.length ; i++){
         if(arrStr[i].includes("")){
             wordCount = arrStr[i].split(" ").length;
              itemNum = itemNum + wordCount;
@@ -230,11 +229,9 @@ Use the getRandomFlavors function and new arrays below to do the following:
 
     For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
-
-
-function getRandomFlavors(/*code here*/){
-    /*code here*/
-}
+// function getRandomFlavors(/*code here*/){
+//     /*code here*/
+// }
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
@@ -316,6 +313,19 @@ const regionalFlavors = [
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"
 ]
+
+function getRandomFlavors(arrOriginalFlavors, arrNewFlavors, arrSeasonalFlavors, arrRegionalFlavors){
+    let newArr =[];
+    let index=0;
+    for(let i = 0; i < 31; i++){
+        let arrMain = originalFlavors.concat(newFlavors, seasonalFlavors, regionalFlavors);
+         index = (Math.floor(Math.random()* arrMain.length));
+         newArr.push(originalFlavors[index]);
+    }
+    console.log("New Array count for STRETCH - 2 : " + newArr.length);
+    console.log("New Array from All Arrays :" + newArr);
+}
+getRandomFlavors(originalFlavors2, newFlavors, seasonalFlavors, regionalFlavors);
 
 
 
